@@ -3,6 +3,7 @@
 int stock = 50;
 
 void IngresarStock(int &stock, int cantidad);
+void RetirarStock(int *stock, int cantidad);
 
 
 int main(){
@@ -17,10 +18,25 @@ int main(){
         IngresarStock(stock, cantidad);
     std::cout<<"el stock actual es: "<<stock<<std::endl;
     }
-    
+
+    std::cout<<"ingrese la cantidad a retirar:"<< std::endl;
+    std::cin>>cantidad;
+    if(cantidad < 0){
+        std::cout<<"el stock no puede ser negativo"<<std::endl;
+        return 1;
+    } else{
+        RetirarStock(&stock, cantidad);
+    std::cout<<"el stock actual es: "<<stock<<std::endl;
+    }
 }
 
 void IngresarStock(int &stock, int cantidad){
     stock += cantidad;
 }
+
+void RetirarStock(int *stock, int cantidad){
+    *stock -= cantidad;
+
+}
+
 
